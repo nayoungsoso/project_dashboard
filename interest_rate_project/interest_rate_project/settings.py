@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e_+sraa^8wdh%vp*mn+!19b00!rte9_zgvb(^6ev5z9xhnzrr-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['35.78.38.144', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'interest_rate_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'interest_rate_db',  # DB 이름
+        'USER': 'user',        # DB 사용자명
+        'PASSWORD': '0000',  # DB 비밀번호
+        'HOST': 'localhost',      # DB 서버 주소
+        'PORT': '3306',           # MySQL 포트 (기본 3306)
     }
 }
 
