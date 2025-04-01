@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/main.css' %}"
+    />
+  </head>
+  <body>
+    <div class="main-box">
+      <!-- 사이드바 -->
+      <div class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" class="home-img"></a></li>
+          <li><a href="{% url 'main' %}" class="select-button"><img src="{% static 'img/eye.png' %}" class="eye-img"></a></li>
+          <li><a href="{% url 'step1' %}">STEP1</a></li>
+          <li><a href="{% url 'step2' %}">STEP2</a></li>
+          <li><a href="{% url 'step3' %}">STEP3</a></li>
+          <li><a href="{% url 'step4' %}">STEP4</a></li>
+          <li><a href="{% url 'step5' %}">STEP5</a></li>
+        </ul>
+      </div>
+  
+      <!-- 전체 컨텐츠 영역 -->
+      <div class="container">
+        <!-- 중앙 설명과 왼쪽 설명이 포함된 영역 -->
+        <div class="center">
+          <!-- 왼쪽 설명 부분 -->
+          <div class="left-side">
+            <h1>Data Chart</h1>
+            <p class="sub-title">Correlation between usage data and interest rates</p>
+          </div>
+          
+          <!-- 중앙 설명 부분 -->
+        <div class="main-content">
+          <div class="grid-container">
+            <div class="grid-item">실업률<span class="item">(unemployment)</span></div>
+            <div class="grid-item">경기동행종합<span class="item">(coincident)</span></div>
+            <div class="grid-item">경기선행종합<span class="item">(leading_price)</span></div>
+            <div class="grid-item">경제심리<span class="item">(ESI)</span></div>
+            <div class="grid-item">수출물가<span class="item">(export_price)</span></div>
+            <div class="grid-item">국내총생산<span class="item">(GDP)</span></div>
+            <div class="grid-item">지가변동률<span class="item">(land_price_change)</span></div>
+            <div class="grid-item">소비자심리지수<span class="item">(CCSI)</span></div>
+            <div class="grid-item">제조업가동률<span class="item">(manufacturing_capacity_utilization)</span></div>
+            <div class="grid-item">미국정책금리<span class="item">(us_policy_rate)</span></div>
+            <div class="grid-item">코스닥지수<span class="item">(kosdaq_index)</span></div>
+            <div class="grid-item">자본수지<span class="item">(capital_account)</span></div>
+            <div class="grid-item">미국산업생산<span class="item">(us_industrial_production)</span></div>
+            <div class="grid-item">미국소비자심리<span class="item">(us_consumer_sentiment)</span></div>
+            <div class="grid-item">미국CPI<span class="item">(us_CPI)</span></div>
+            <div class="grid-item">경제성장률<span class="item">(economic_growth_rate)</span></div>
+            <div class="grid-item">뉴스감성데이터<span class="item">(news_sentiment)</span></div>
+            <div class="grid-item">뉴스데이터<span class="item">(news_data)</span></div>
+            <div class="grid-item">통화정책방향결정문<span class="item">(report_data)</span></div>
+          </div>
+          <div id="popup-overlay" class="popup-overlay"></div>
+
+          <!-- 팝업 내용 -->
+          <div id="popup" class="popup">
+              <h2 id="popup-title"></h2>
+              <p id="popup-content"></p>
+              <div class="close-btn" onclick="closePopup()"><img src="{% static 'img/close_btn.png' %}" class="close-img"></div>
+          </div>
+        </div>
+        <!-- 오른쪽 설명 부분 -->
+        <div class="right-side">
+          <h2></h2>
+          <p></p>
+        </div>
+      </div> <!-- container div 끝 -->
+    </div> <!-- main-box div 끝 -->
+    <div class="footer">
+      <p>insight factory</p>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+  
+
+</html>

@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/index.css' %}"
+    />
+    <script src="{% static 'js/index.js' %}"></script>
+  </head>
+  <body>
+    <div class="main-box">
+      <!-- 사이드바 -->
+      <div class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}" class="select-button"><img src="static/img/home.png" class="home-img"></a></li>
+          <li><a href="{% url 'main' %}"><img src="static/img/eye.png" class="eye-img"></a></li>
+          <li><a href="{% url 'step1' %}">STEP1</a></li>
+          <li><a href="{% url 'step2' %}">STEP2</a></li>
+          <li><a href="{% url 'step3' %}">STEP3</a></li>
+          <li><a href="{% url 'step4' %}">STEP4</a></li>
+          <li><a href="{% url 'step5' %}">STEP5</a></li>
+        </ul>
+      </div>
+  
+      <!-- 전체 컨텐츠 영역 -->
+      <div class="container">
+        <!-- 중앙 설명과 왼쪽 설명이 포함된 영역 -->
+        <div class="center">
+          <!-- 왼쪽 설명 부분 -->
+          <div class="left-side">
+            <h1>Interest Rate Prediction Project</h1>
+            <p class="sub-title">Korean interest rate forecasting model for Investors</p>
+          </div>
+          
+          <!-- 중앙 설명 부분 -->
+          <div class="main-content">
+            <h2 id="typing-title-1"></h2>
+            <p id="typing-text-1"></p>
+            <h2 id="typing-title-2"></h2>
+            <p id="typing-text-2"></p>
+            <h2 id="typing-title-3"></h2>
+            <p id="typing-text-3"></p>
+            <h2 id="typing-title-4"></h2>
+            <p id="typing-text-4"></p>
+          </div>
+        </div>
+  
+        <!-- 오른쪽 설명 부분 -->
+        <div class="right-side">
+          <h2></h2>
+          <p></p>
+        </div>
+      </div> <!-- container div 끝 -->
+    </div> <!-- main-box div 끝 -->
+    <div class="footer">
+      <p>insight factory</p>
+    </div>
+  </body>
+  
+
+</html>
