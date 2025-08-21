@@ -1,0 +1,350 @@
+@font-face {
+    font-family: 'YUniverse-L';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-L.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+              @font-face {
+    font-family: 'YUniverse-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-B.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 기본 스타일 설정 */
+body {
+    background-color: #064bff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 로고 컨테이너 - 왼쪽 상단 고정 */
+.logo-container {
+    position: absolute;
+    top: 2px;
+    left: 65px;
+    margin-top: 20px;
+}
+
+.logo-img {
+    width: 140px; /* 로고 크기 조정 */
+    height: auto;
+}
+
+/* 메인 박스 - 화면 중앙 정렬 */
+.main-box {
+    margin-top: 50px;
+    background-color: #030566;
+    width: 93%;
+    height: 78%;
+    display: flex; /* 내부 요소 가로 정렬 */
+    flex-direction: row; /* 가로 정렬 */
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    align-items: flex-start; /* 위쪽 정렬 */
+}
+
+/* 메뉴바 - 메인박스 왼쪽에 배치 */
+.navbar {
+    width: 96px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px; /* 원하는 만큼 조절 */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar ul li {
+    margin: 23px 0;
+    padding-left: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.select-button {
+    background-color: #064bff;
+    color: #ddd;
+    transform: scale(0.8);
+}
+
+.navbar ul li a:hover {
+    background-color: #064bff;
+    color: #ddd;
+    transform: scale(0.8);
+}
+
+/* 컨텐츠 영역 */
+.container {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    width: calc(100% - 96px); /* navbar 제외한 나머지 공간 */
+    height: 100%;
+}
+
+/* 왼쪽 설명 부분 */
+.left-side {
+    width: 100%;
+    height: 10%;
+    padding: 15px;
+    color: white;
+}
+
+/* 중앙 설명 부분 (표 위치) */
+.main-content {
+    height: 90%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+  .row1 {
+    display: flex;
+    width: 100%;
+    height: 35%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: -5px;
+  }  
+  .row2 {
+    display: flex;
+    width: 100%;
+    height: 65%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0px;
+  }
+  
+/* 공통 박스 스타일 */
+.grid-box,
+.grid-box-bottom, .grid-box-bottom2, .grid-box-bottom3 {
+  background-color: #FFF5E9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 예쁜 그림자 */
+}
+
+.grid-box2{
+    position: relative; /* 이게 기준! */
+    background-color: #FFF5E9;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 예쁜 그림자 */
+
+}
+  .grid-box {
+    width: 20%;
+    height: 95%;
+  }
+  
+  .grid-box2 {
+    width: 58%;
+    height: 95%;
+  }
+  
+  .grid-box-bottom, .grid-box-left{
+    width: 33%; /* 정확히 215씩 2개 = 430px */
+    height: 95%;
+  }
+  
+  .grid-box-bottom2{
+    flex-direction: column;  /* 🔥 핵심! 세로 정렬 */
+    width: 97.5%; /* 정확히 215씩 2개 = 430px */
+    height: 48.5%;
+  }
+  .grid-box-bottom3{
+    width: 97.5%; /* 정확히 215씩 2개 = 430px */
+    height: 48%;
+    margin-top: 13px;
+  }
+  .chart-container {
+    height: 80%;
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+  }
+  
+  .chart-box {
+    flex: 1;
+  }
+/* 설명 제목 스타일 */
+.left-side h1 {
+    font-family: 'YUniverse-B';
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 40px;
+    color: #FFC000;
+}
+/* 페이지 스타일 */
+.shift-page {
+    font-family: 'YUniverse-L';
+    flex: 1;
+    font-size: 14px;
+    color: #A1753B;
+}
+
+/* 리스트 스타일 */
+.shift-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.shift-page li {
+    color: #A1753B;
+    margin-bottom: 6px;
+}
+
+/* Shift 제목 스타일 */
+.shift-title {
+    font-family: 'YUniverse-B';
+    font-size: 16px;
+    margin: 10px 0 6px 10px;
+    color: #A1753B;
+}
+
+/* shift 페이지 묶음 */
+.shift-pages-wrapper {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px 10px 10px;
+    box-sizing: border-box;
+}
+.cloud-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+/* 아이콘 크기 */
+.eye-img, .home-img{
+    width: 40px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* 아이콘 크기 */
+.model-img, .info-img {
+    width: 35px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* 표 스타일 */
+.grid-box canvas {
+    max-width: 98%;
+    height: auto;
+}
+/* 왼쪽 박스 컨테이너 */
+.container-box {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 20px; /* 박스 간격 */
+}
+
+/* 박스 스타일 */
+.box1, .box2 {
+    width: 150px;
+    height: 100px;
+    background-color: #ffffff33; /* 반투명 흰색 */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+/* 차트 영역 전체 박스 */
+.chart-section {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+/* 버튼을 오른쪽 상단에 */
+.dropdown-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+  }
+  /* 버튼 스타일은 그대로 유지 */
+  .dropdown-btn {
+    font-family: 'YUniverse-L';
+    padding: 8px 16px;
+    font-size: 13px;
+    background-color: #748963;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  /* 드롭다운 메뉴 */
+  .dropdown-menu {
+    font-family: 'YUniverse-L';
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    color: #748963;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    min-width: 160px;
+  }
+  
+  /* 차트 캔버스 넓게 */
+  #compareChart {
+    width: 90% !important;
+    height: 95% !important;
+    margin: 10px;
+    margin-left: 35px;
+  }
+  
+  /* ▼ 이게 누락돼 있었음 */
+  .dropdown-menu.show {
+    display: block;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }

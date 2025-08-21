@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/team.css' %}"
+    />
+    <script src="{% static 'js/info.js' %}"></script>
+  </head>
+  <body>
+    <!-- 로고 추가 -->
+    <div class="logo-container">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="main-box">
+      <!-- 사이드바 -->
+      <div class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" class="home-img"></a></li>
+          <li><a href="{% url 'main' %}"><img src="{% static 'img/eye.png' %}" class="eye-img"></a></li>
+          <li><a href="{% url 'step1' %}"><img src="{% static 'img/model_btn.png' %}" class="model-img"></a></li>
+          <li><a href="{% url 'team' %}" class="select-button"><img src="{% static 'img/info_btn.png' %}" class="info-img"></a></li>
+        </ul>
+      </div>
+  
+      <!-- 전체 컨텐츠 영역 -->
+      <div class="container">
+        <!-- 중앙 설명과 왼쪽 설명이 포함된 영역 -->
+          <!-- 왼쪽 설명 부분 -->
+          <div class="left-side">
+            <h1>Insight Factory</h1>
+            <p class="sub-title">team informations</p>
+          </div>
+          
+          <!-- 중앙 설명 부분 -->
+          <div class="main-content">
+
+              <h2 id="typing-title-1"></h2>
+              <p id="typing-text-1"></p>
+              <h2 id="typing-title-2"></h2>
+              <p id="typing-text-2"></p>
+              <h2 id="typing-title-3"></h2>
+              <p id="typing-text-3"></p>
+              <h2 id="typing-title-4"></h2>
+              <p id="typing-text-4"></p>
+
+          </div>
+      </div> <!-- container div 끝 -->
+    </div> <!-- main-box div 끝 -->
+  </body>
+  
+
+</html>

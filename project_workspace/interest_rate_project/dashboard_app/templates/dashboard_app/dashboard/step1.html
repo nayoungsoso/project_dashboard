@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/step1.css' %}" />
+  </head>
+  <body>
+    <!-- 로고 -->
+    <div class="logo-container">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-img">
+      </a>
+    </div>
+
+    <div class="main-box">
+      <!-- 사이드바 -->
+      <div class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" class="home-img"></a></li>
+          <li><a href="{% url 'main' %}"><img src="{% static 'img/eye.png' %}" class="eye-img"></a></li>
+          <li><a href="{% url 'step1' %}" class="select-button"><img src="{% static 'img/model_btn.png' %}" class="model-img"></a></li>
+          <li><a href="{% url 'team' %}"><img src="{% static 'img/info_btn.png' %}" class="info-img"></a></li>
+        </ul>
+      </div>
+
+      <!-- 본문 -->
+      <div class="container">
+        <!-- 상단 설명 -->
+        <div class="left-side">
+          <h1>Use Models</h1>
+          <p class="sub-title">model informations</p>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+          <div class="grid-container">
+
+          <!-- (1,1): 세로 + 가로 차트 -->
+          <div class="grid-item" style="grid-area: chart1;">
+            <div class='chart-title'>
+              정형 모델링
+            </div>
+            <div class="split-horizontal">
+              <div><canvas id="verticalChart1"></canvas></div>
+              <div><canvas id="horizontalChart1"></canvas></div>
+            </div>
+          </div>
+
+          <!-- (1,2): 세로 + 가로 차트 -->
+          <div class="grid-item" style="grid-area: chart2;">
+            <div class='chart-title'>
+            정형+비정형 모델링
+          </div>
+            <div class="split-horizontal">
+              <div><canvas id="verticalChart2"></canvas></div>
+              <div><canvas id="horizontalChart2"></canvas></div>
+            </div>
+          </div>
+
+            <!-- (2,1): 표1 -->
+            <div class="grid-item-table" style="grid-area: table1;">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>LSTM+GRU</th>
+                    <th>LSTM(HP)</th>
+                    <th>XGB(HP)</th>
+                    <th>RF(HP)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>RMSE</td>
+                    <td>0.0603</td>
+                    <td>0.0805</td>
+                    <td>0.0655</td>
+                    <td>0.0796</td>
+                  </tr>
+                  <tr>
+                    <td>MAE</td>
+                    <td>0.5335</td>
+                    <td>0.0563</td>
+                    <td>0.0406</td>
+                    <td>0.0557</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- (2,2): 표2 -->
+            <div class="grid-item-table" style="grid-area: table2;">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>TF+LSTM+GRU</th>
+                    <th>LSTM(HP)</th>
+                    <th>XGB(HP)</th>
+                    <th>RF(HP)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>RMSE</td>
+                    <td>1.1698</td>
+                    <td>0.0831</td>
+                    <td>0.0918</td>
+                    <td>0.1787</td>
+                  </tr>
+                  <tr>
+                    <td>MAE</td>
+                    <td>1.0854</td>
+                    <td>0.0634</td>
+                    <td>0.0534</td>
+                    <td>0.1319</td>
+                  </tr>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+
+            <div class="grid-item-info" style="grid-area: chart3_4;">
+              <div class="model-info-box">
+                <h2 class="info-title">모델 설명</h2>
+                <ul class="model-list">
+                  <li><strong>* LSTM</strong> : 딥러닝 모델입니다.</li>
+                  <li><strong>* GRU</strong> : 딥러닝 모델입니다.</li>
+                  <li><strong>* LSTM+GRU</strong> : 두 모델을 결합하여 예측 성능을 향상시킨 모델입니다.</li>
+                  <li><strong>* LSTM(HP)</strong> : LSTM 모델에 하이퍼 파라미터 튜닝을 적용했습니다.</li>
+                  <li><strong>* XGB(HP)</strong> : XGBOOST 모델에 하이퍼 파라미터 튜닝을 적용했습니다.</li>
+                  <li><strong>* RF(HP)</strong> : RANDOM FOREST 모델에 하이퍼 파라미터 튜닝을 적용했습니다.</li>
+                  <li><strong>* TF+LSTM+GRU</strong> : Transformer 구조에 LSTM과 GRU의 조합 모델입니다.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- (1,3): 라인2 + 도넛2
+            <div class="grid-item-split" style="grid-area: chart3;">
+              <div class="sub-grid" style="grid-template-columns: 1fr; grid-template-rows: 1fr 1fr;">
+                <div class="split-horizontal">
+                  <div><canvas id="linePlot1"></canvas></div>
+                  <div><canvas id="donutChart1"></canvas></div>
+                </div>
+                <div class="split-horizontal">
+                  <div><canvas id="linePlot2"></canvas></div>
+                  <div><canvas id="donutChart2"></canvas></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid-item" style="grid-area: chart4;">
+              <div class="split-horizontal">
+                <div><canvas id="linePlot3"></canvas></div>
+                <div><canvas id="donutChart3"></canvas></div>
+              </div>
+            </div>
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/model.js' %}"></script>
+  </body>
+</html>

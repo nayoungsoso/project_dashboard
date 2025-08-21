@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/index.css' %}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- 로고 추가 -->
+    <div class="logo-container">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="main-box">
+      <!-- 사이드바 -->
+      <div class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}" class="select-button"><img src="static/img/home.png" class="home-img"></a></li>
+          <li><a href="{% url 'main' %}"><img src="static/img/eye.png" class="eye-img"></a></li>
+          <li><a href="{% url 'step1' %}"><img src="static/img/model_btn.png" class="model-img"></a></li>
+          <li><a href="{% url 'team' %}"><img src="static/img/info_btn.png" class="info-img"></a></li>
+        </ul>
+      </div>
+  
+      <!-- 전체 컨텐츠 영역 -->
+      <div class="container">
+        <!-- 중앙 설명과 왼쪽 설명이 포함된 영역 -->
+          <!-- 왼쪽 설명 부분 -->
+          <div class="left-side">
+            <h1 id="typeTitle">Korea Interest Rate Prediction</h1>
+            <p class="sub-title">예측된 한국 금리를 제공합니다.</p>
+          </div>
+          
+          <!-- 중앙 설명 부분 -->
+          <div class="main-content">
+            <canvas id="interestRateChart"></canvas>
+                <!-- 왼쪽 박스 2개 -->
+            <div class="info-box">
+              <!-- BOX1: 날짜, 금리 변화 -->
+              <div class="box1">
+                <div class="box-title">MAY 2025</div>
+                <div class="box-data">
+                  <span class="rate-value">2.49</span>
+                  <span class="rate-change down">▼ 0.53</span>
+                </div>
+              </div>
+
+              <!-- BOX2: 정확도 차트 -->
+              <div class="box2">
+                <div class="box-title">ACCURACY</div>
+                <canvas id="accuracyChart" width="100" height="100"></canvas>
+                <div class="accuracy-label" id="accuracyValue">0%</div>
+              </div>
+            </div>
+          </div>
+      </div> <!-- container div 끝 -->
+    </div> <!-- main-box div 끝 -->
+  
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+  
+
+</html>

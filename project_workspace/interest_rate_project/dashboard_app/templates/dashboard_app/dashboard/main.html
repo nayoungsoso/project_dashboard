@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/main.css' %}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- 로고 추가 -->
+    <div class="logo-container">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="main-box">
+      <!-- 사이드바 -->
+      <div class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}"><img src="{% static 'img/home.png' %}" class="home-img"></a></li>
+          <li><a href="{% url 'main' %}" class="select-button"><img src="{% static 'img/eye.png' %}" class="eye-img"></a></li>
+          <li><a href="{% url 'step1' %}"><img src="{% static 'img/model_btn.png' %}" class="model-img"></a></li>
+          <li><a href="{% url 'team' %}"><img src="{% static 'img/info_btn.png' %}" class="info-img"></a></li>
+        </ul>
+      </div>
+  
+      <!-- 전체 컨텐츠 영역 -->
+      <div class="container">
+        <!-- 중앙 설명과 왼쪽 설명이 포함된 영역 -->
+          <!-- 왼쪽 설명 부분 -->
+          <div class="left-side">
+            <h1>Data EDA</h1>
+          </div>
+          
+          <!-- 중앙 설명 부분 -->
+          <div class="main-content">
+              <!-- 1행 -->
+              <div class="row1">
+                <div class="grid-box">
+                  <canvas id="correlationChart"></canvas>  <!-- 원본 변수와 금리 -->
+              </div>
+              <div class="grid-box">
+                  <canvas id="shiftedCorrelationChart"></canvas> <!-- 시차 적용 변수와 금리 -->
+              </div>
+                <div class="grid-box2">
+                  <div class="dropdown-container">
+
+                    <div class="dropdown-menu" id="dropdownMenu">
+                      <div class="dropdown-item" data-var="unemployment">실업률</div>
+                      <div class="dropdown-item" data-var="coincident">동행지수</div>
+                      <div class="dropdown-item" data-var="leading_price">선행지수</div>
+                      <div class="dropdown-item" data-var="esi">ESI</div>
+                      <div class="dropdown-item" data-var="export_price">수출물가</div>
+                      <div class="dropdown-item" data-var="current_account">경상수지</div>
+                      <div class="dropdown-item" data-var="gdp">GDP</div>
+                      <div class="dropdown-item" data-var="land_price_change">땅값 상승률</div>
+                      <div class="dropdown-item" data-var="ccsi">CCSI</div>
+                      <div class="dropdown-item" data-var="manufacturing_capacity_utilization">제조업 가동률</div>
+                      <div class="dropdown-item" data-var="us_policy_rate">미국 기준금리</div>
+                      <div class="dropdown-item" data-var="kosdaq_index">코스닥 지수</div>
+                      <div class="dropdown-item" data-var="capital_account">자본수지</div>
+                      <div class="dropdown-item" data-var="us_industrial_production">미국 산업생산</div>
+                      <div class="dropdown-item" data-var="us_consumer_sentiment">미국 소비자심리지수</div>
+                      <div class="dropdown-item" data-var="us_cpi">미국 CPI</div>
+                      <div class="dropdown-item" data-var="economic_growth_rate">경제성장률</div>
+                    </div>
+                  
+                    <button class="dropdown-btn" id="selectedVar">실업률 ▼</button>
+                  </div>
+                  <canvas id="compareChart"></canvas>
+                </div>
+              </div>
+            
+              <!-- 2행 -->
+              <div class="row2">
+                <div class="grid-box-bottom">
+                  <img src="{% static 'img/wordcloud_news.png' %}" class="cloud-img">
+                </div>
+                <div class="grid-box-bottom">
+                  <img src="{% static 'img/wordcloud_monetary.png' %}" class="cloud-img">
+                </div>
+                <div class="grid-box-left">
+                  <div class="grid-box-bottom2">
+                    <h4 class="shift-title">Shift</h4>
+                    <div class="shift-pages-wrapper">
+                      <div class="shift-page left">
+                        <ul>
+                          <li>실업률➔6개월</li>
+                          <li>동행지수➔6개월</li>
+                          <li>선행지수➔18개월</li>
+                          <li>ESI➔12개월</li>
+                          <li>수출물가➔12개월</li>
+                          <li>경상수지➔6개월</li>
+                        </ul>
+                      </div>
+                  
+                      <div class="shift-page center">
+                        <ul>
+                          <li>GDP➔1개월</li>
+                          <li>지가변동률➔1개월</li>
+                          <li>CCSI➔12개월</li>
+                          <li>제조업 가동률➔12개월</li>
+                          <li>미국 기준금리➔1개월</li>
+                          <li>코스닥 지수➔1개월</li>
+                        </ul>
+                      </div>
+                  
+                      <div class="shift-page right">
+                        <ul>
+                          <li>자본수지➔6개월</li>
+                          <li>미국 산업생산➔18개월</li>
+                          <li>미국 소비자심리지수➔18개월</li>
+                          <li>미국 CPI➔12개월</li>
+                          <li>경제성장률➔18개월</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-box-bottom3">
+                    <div class="chart-container">
+                      <!-- 도넛 차트 -->
+                      <div class="chart-box">
+                        <canvas id="doughnutChart"></canvas>
+                      </div>
+                  
+                      <!-- 바 차트 -->
+                      <div class="chart-box">
+                        <canvas id="barChart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+      </div> <!-- container div 끝 -->
+    </div> <!-- main-box div 끝 -->
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+  
+
+</html>
